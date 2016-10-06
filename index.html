@@ -8,23 +8,43 @@
   <body>
     <div id="main">
       <h1>Fill out the following information:</h1>
-      <div id="formarea">
+      <div id="formArea">
         <form id="myForm">
           <div class="text">
             <label for="fname">First Name</label>
-            <input id="fname" type="text" />
+            <input id="fname" type="text" name="First Name" data-placeholder="Enter First Name"/>
           </div>
           <div class="text">
             <label for="lname">Last Name</label>
-            <input id="lname" type="text" />
+            <input id="lname" type="text" name="Last Name" data-placeholder="Enter Last Name"/>
           </div>
           <div class="text">
-            <label for="fname">First Name</label>
-            <input id="fname" type="text" />
+            <label for="carMake">Car Make</label>
+            <input id="carMake" type="text" name="Car Make" data-placeholder="Enter Car Make"/>
           </div>
           <div class="text">
-            <label for="lname">Last Name</label>
-            <input id="lname" type="text" />
+            <label for="carModel">Car Model</label>
+            <input id="carModel" type="text" name="Car Model" data-placeholder="Enter Car Model"/>
+          </div>
+          <div class="radio">
+            <label>Select Engine Type</label>
+            <input type="radio" name="Engine Type" value="V6" id="v6"/>
+            <label for="v6">V6</label>
+            <input type="radio" name="Engine Type" value="V8" id="v8"/>
+            <label for="v8">V8</label>
+            <input type="radio" name="Engine Type" value="V10" id="v10"/>
+            <label for="v10">V10</label>
+            <input type="radio" name="Engine Type" value="V12" id="v12"/>
+            <label for="v12">V12</label>
+            <input type="radio" name="Engine Type" value="W16" id="w16"/>
+            <label for="w16">W16</label>
+          </div>
+          <div class="textarea">
+            <label id="TA">Enter More information on your vehicle</label>
+            <textarea name="More Information" id="TA" data-placeholder="Enter More information...."></textarea>
+          </div>
+          <div class="submit">
+            <input type="submit" value="Click to submit" />
           </div>
         </form>
       </div>

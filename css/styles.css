@@ -1,20 +1,30 @@
 @import 'https://fonts.googleapis.com/css?family=Open+Sans:400,700,800';
 
 body{
-    background: #ccc;
-    width: 100%;
+  background: #ccc;
+  font-size: 62.5%;
+  margin:0;
+  width: 100%;
+}
+
+*:focus{
+  outline:none;
+}
+
+label{
+  cursor: pointer;
 }
 
 #main{
-    background: #eee;
-    margin: auto;
-    margin-top: 150px;
-    padding: 15px;
-    padding-bottom: 50px;
-    width: 65%;
+  background: #eee;
+  margin: auto;
+  margin-top: 150px;
+  padding: 15px;
+  padding-bottom: 50px;
+  width: 65%;
 }
 
-/* Pseudo tag clearfix trick https://css-tricks.com/snippets/css/clear-fix/*/
+/* Pseudo tag clearfix trick used from https://css-tricks.com/snippets/css/clear-fix/ */
 #main:after {
   visibility: hidden;
   display: block;
@@ -24,34 +34,183 @@ body{
   height: 0;
 }
 
-h1{
-    font-family: 'Open Sans', sans-serif;
-    text-align: center;
+h1, h2{
+  font-family: 'Open Sans', sans-serif;
+  font-size: 3.5em;
+  text-align: center;
+  width: 100%;
 }
 
-.text{
-    float: left;
-    width: 45%;
-    margin-left: 5%;
-    margin-top: 25px;
+h2{
+  font-size: 2.5em;
 }
 
-.text > label {
-    display: block;
-    font-family: 'Open Sans', sans-serif;
-    width: 100%;
+#formArea{
+  width: 100%;
+}
+
+img{
+  display: block;
+  margin: auto;
+}
+
+.text, .radio, .textarea, .submit{
+  float: left;
+  margin-left: 5%;
+  margin-top: 25px;
+  position: relative;
+  width: 45%;
+}
+
+.text > label, .radio > label:first-of-type, .textarea > label {
+  display: block;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 1.5em;
+  text-decoration: underline;
+  width: 90%;
+}
+
+.text > label:after{
+  bottom: 5px;
+  content: "\2717";
+  color:#F00;
+  display: block;
+  font-size: 2.5em;
+  position: absolute;
+  right: 10%;
+}
+
+.text.valid > label:after{
+  content: "\2713";
+  color: #65f442;
 }
 
 .text > input[type=text]{
-    border: none;
-    border-radius: 5px;
-    font-family: 'Open Sans', sans-serif;
-    font-size: 30px;
-    height: 35px;
-    padding: 5px;
-    width: 90%;
+  background: transparent;
+  border: none;
+  border-bottom: 3px solid #F00;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 3em;
+  height: 35px;
+  padding: 5px;
+  position: relative;
+  width: 90%;
+  z-index:5;
 }
 
-.text > input[type=text]:focus{
-    outline: none;
+.text.valid > input[type=text]{
+  border-bottom: 3px solid #65f442;
+}
+
+.text > .placeholder, .textarea > .placeholder{
+  background: transparent;
+  border-radius: 5px;
+  bottom: 5px;
+  color: #ccc;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 30px;
+  position: absolute;
+  height: 35px;
+  padding: 5px;
+  width: 90%;
+  z-index: 2;
+}
+
+.radio > input[type=radio]{
+  display: none;
+}
+
+.radio > input[type=radio] + label{
+  cursor: pointer;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 2.5em;
+  display: block;
+  margin-left: 30px;
+  width: 90%;
+}
+
+.radio > input[type=radio] + label:before{
+  content: "\2AA7";
+  color: #F00;
+  display: block;
+  position: absolute;
+  left: -5px;
+  opacity: 0;
+  transition: all 0.3s;
+}
+
+.radio > input[type=radio] + label:hover:before{
+  content: "\2AA7";
+  color: #F00;
+  display: block;
+  position: absolute;
+  left: 0;
+  opacity: 1;
+}
+
+.radio > input[type=radio]:checked + label:before{
+  content: "\2AAB";
+  color: #65f442;
+  display: block;
+  position: absolute;
+  left: 0;
+  opacity: 1;
+}
+
+.textarea > textarea {
+  background: transparent;
+  border: 1px solid #F00;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 1.5em;
+  height: 200px;
+  margin-top: 5px;
+  width: 90%;
+}
+
+.textarea.valid > textarea{
+  border: 1px solid #65f442;
+}
+
+.submit{
+  height: 75px;
+  padding-top: 15px;
+  width: 100%;
+}
+
+.submit > input[type=submit]{
+  background: #ccc;
+  border: none;
+  cursor: pointer;
+  display: block;
+  height: 50px;
+  margin: auto;
+  width: 25%;
+  -webkit-box-shadow: -1px 2px 5px 0px rgba(0,0,0,0);
+  -moz-box-shadow: -1px 2px 5px 0px rgba(0,0,0,0);
+  box-shadow: -1px 2px 5px 0px rgba(0,0,0,0);
+
+  transition: all 0.3s;
+}
+
+.submit > input[type=submit]:hover{
+  -webkit-box-shadow: -1px 2px 5px 0px rgba(0,0,0,0.75);
+  -moz-box-shadow: -1px 2px 5px 0px rgba(0,0,0,0.75);
+  box-shadow: -1px 2px 5px 0px rgba(0,0,0,0.75);
+}
+
+.submit > input[type=submit]:active{
+  -webkit-box-shadow: -1px 2px 55px 0px rgba(0,0,0,0.0);
+  -moz-box-shadow: -1px 2px 55px 0px rgba(0,0,0,0.0);
+  box-shadow: -1px 2px 55px 0px rgba(0,0,0,0.0);
+}
+
+.error_list{
+  width: 100%;
+}
+
+.error_list > ul > li{
+  font-family: 'Open Sans', sans-serif;
+  font-size: 1.5em;
+  margin: auto;
+  width: 33%;
 }
